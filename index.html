@@ -1,42 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sorpresa 👀</title>
+    <title>Sorpresa 😈</title>
     <style>
         body {
             background-color: white;
             text-align: center;
-            font-family: Impact, Arial, sans-serif;
-            margin-top: 100px;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
         }
 
         h1 {
-            font-family: Arial, sans-serif;
-    font-weight: bold;
-    font-size: 100px;
-    color: black;
+            font-weight: bold;
+            font-size: 100px;
+            color: black;
+        }
+
+        /* Contenedor para los dos GIFs principales */
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* espacio entre los GIFs */
+            margin-top: 30px;
+        }
+
+        .gif {
+            height: 250px; /* todos los GIFs tienen la misma altura */
+            width: auto;
+        }
+
+        /* Contenedor para la frase final + GIF final */
+        .final-container {
+            display: flex;
+            flex-direction: column; /* texto arriba, GIF abajo */
+            align-items: center;    /* centra horizontalmente */
+            margin-top: 20px;
         }
 
         .firma {
-    font-family: Arial, sans-serif;
-    font-size: 30px;
-    margin-top: 20px;
-}
+            font-size: 30px;
+            margin-top: 20px;
+            display: none; /* empieza oculto */
+        }
 
-        img {
+        .gif-final {
             width: 250px;
-            margin: 20px;
+            margin-top: 10px;
+            display: none; /* empieza oculto */
         }
     </style>
 </head>
 <body>
 
+    <!-- TEXTO PRINCIPAL -->
     <h1>feo el que lee</h1>
-    <p class="firma">saludos!! atte: la más linda de la familia</p>
 
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHlwMjRmOWFjNnU5a2N4czJvZnMyaTJxaWp2bGpmMGs5cndobWpneCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/fUYhyT9IjftxrxJXcE/giphy.gif">
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnFrMjYwODF1ZXAzYmJnOTRiaTZmczBucGEyanhmNGV0Y2ZrbXg1biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/e0YP61K2BlBZEp3P50/giphy.gif">
-     <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3B2NGh4cGhmcjBqaXFlYmoyZ2hiaHppOWh2dTdtY3puM2thZjZ2YiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/yziuK6WtDFMly/giphy.gif">
+    <!-- PRIMEROS DOS GIFS CENTRADOS -->
+    <div class="gif-container">
+        <img class="gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHlwMjRmOWFjNnU5a2N4czJvZnMyaTJxaWp2bGpmMGs5cndobWpneCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/fUYhyT9IjftxrxJXcE/giphy.gif">
+        <img class="gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnFrMjYwODF1ZXAzYmJnOTRiaTZmczBucGEyanhmNGV0Y2ZrbXg1biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/e0YP61K2BlBZEp3P50/giphy.gif">
+    </div>
+
+    <!-- TEXTO FINAL + GIF FINAL -->
+    <div class="final-container">
+        <p class="firma">saludos!! atte: la más linda de la familia</p>
+        <img class="gif-final" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3B2NGh4cGhmcjBqaXFlYmoyZ2hiaHppOWh2dTdtY3puM2thZjZ2YiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/yziuK6WtDFMly/giphy.gif">
+    </div>
+
+    <!-- SCRIPT PARA APARECER FRASE + GIF FINAL DESPUÉS DE 3 SEGUNDOS -->
+    <script>
+        setTimeout(function(){
+            document.querySelector('.firma').style.display = 'block';
+            document.querySelector('.gif-final').style.display = 'inline';
+        }, 3000);
+    </script>
+
+    <!-- SCRIPT PARA CONFETI AL CARGAR LA PÁGINA -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#ff0a54','#ff477e','#ff85a1','#fbb1b9','#c5f3ff','#9bf6ff','#a0c4ff']
+        });
+    </script>
 
 </body>
 </html>
