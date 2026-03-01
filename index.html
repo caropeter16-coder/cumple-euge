@@ -38,17 +38,14 @@
             margin-top: 20px;
         }
 
-        .firma {
-            font-size: 30px;
-            margin-top: 20px;
-            display: none; /* empieza oculto */
-        }
+       .firma, .gif-final {
+    opacity: 0;              /* invisible al inicio */
+    transition: opacity 1.5s ease-in-out; /* transición suave */
+}
 
-        .gif-final {
-            width: 250px;
-            margin-top: 10px;
-            display: none; /* empieza oculto */
-        }
+.firma.visible, .gif-final.visible {
+    opacity: 1;              /* visible */
+}
     </style>
 </head>
 <body>
@@ -71,9 +68,9 @@
     <!-- SCRIPT PARA APARECER FRASE + GIF FINAL DESPUÉS DE 3 SEGUNDOS -->
     <script>
         setTimeout(function(){
-            document.querySelector('.firma').style.display = 'block';
-            document.querySelector('.gif-final').style.display = 'inline';
-        }, 3000);
+    document.querySelector('.firma').classList.add('visible');
+    document.querySelector('.gif-final').classList.add('visible');
+}, 3000);
     </script>
 
     <!-- SCRIPT PARA CONFETI AL CARGAR LA PÁGINA -->
